@@ -15,13 +15,13 @@ return 0;
 }
 int dayOfYear(int day, int month, int year){
 	int daysofmonths[]={31,28,31,30,31,30,31,31,30,31,30,31};
-	
+		if(day<1||day>31||month<1||month>12||year<1753){
+		return -1;
+	}
 	if(leap(year))
 		daysofmonths[1]=29;
 
-	if(day>31||month<1||month>12||year<1753){
-		return -1;
-	}
+
 	if(!leap(year)&&day==29){
 		return -1;
 	}
