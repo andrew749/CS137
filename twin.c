@@ -1,9 +1,9 @@
 #include<stdio.h>
 int isTwin( int number){
-	if(number<=3){
+	if(number<3){
 		return 0;
 	}
-	if(isPrime(number)&&isPrime(number-2))
+	if(isPrime(number)&&(isPrime(number-2)||isPrime(number+2)))
 	{
 		return 1;
 	}
@@ -23,4 +23,8 @@ int isPrime( int number){
 	}
 	return 1;
 }
-	
+// int main(){
+// int number;
+// scanf("%d",&number);
+// printf("%d\n",isTwin(number));
+// }	

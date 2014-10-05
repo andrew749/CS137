@@ -1,0 +1,17 @@
+#include<stdlib.h>
+int comp(int one, int two)
+{
+
+if(one>two) return -1;else if (one <two)return 1;
+else return 0;
+}
+
+int main(void){
+int a[]={1,2,5,6,3,4};
+qsort(a,6,sizeof(int),comp);
+for(int b=0;b<6;b++){
+printf("%d",a[b]);
+}
+return 0;
+}
+

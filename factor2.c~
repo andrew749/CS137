@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void factor(int number){
+int div;    
+    int first=1;
+    div = 2;
+    printf("%d = ",number );
+    while(number!=0){
+        if(number%div!=0)
+            div = div + 1;
+        else {
+            number = number / div;
+            if(first){
+                printf("%d ",div);
+                first=0;
+            }
+            else
+                printf("* %d ",div);
+            if(number==1)
+                break;
+        }
+    }
+    printf("\n");
+    
+}

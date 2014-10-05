@@ -3,7 +3,9 @@ void printNum(int number);
 int main(){
 	int a;
 	scanf("%d",&a);
+	if(a!=0){
 	printNum(a);
+}else printf("0\n");
 	return 0;
 }
 void printNum(int number){
