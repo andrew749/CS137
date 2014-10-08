@@ -11,7 +11,7 @@ int main(void) {
 	factor(123392);
 	factor(2147483647);
 	factor(242);
-
+	factor(98);
 	return 0;
 }
 
