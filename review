@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<assert.h>
+int main(){
+binarytodecimal(1001);
+
+}
+int binarytodecimal(int number){
+int digit, int rem, int sum=0;
+while(number!=0){
+rem=number%2;
+assert(rem>1||rem<0);
+number/=2;
+printf("%d",rem);
+}
+
+}
+void changebase(int number, int base){
+int a,b;
+a=number/base;
+b=number%base;
+if(a!=0)
+changebase(a,base);
+printf("%d",b);
+}
+while(b!=0){
+temp=b;
+b=a%b;
+a=temp;
+
+}
