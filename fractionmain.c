@@ -9,7 +9,6 @@ int main (void)
   b = fractionCreate (8, 9);
   c = fractionCreate (56, 160);
   d = fractionCreate (35, 150);
-  printf("%d %d\n",a.numerator,a.denominator);
   bad = fractionCreate (8, 0);
 
   r = fractionAdd (a, b);
