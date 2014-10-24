@@ -82,11 +82,15 @@ struct fraction fractionMultiply (struct fraction a, struct fraction b){
   return f;
   }
 struct fraction fractionDivide (struct fraction a, struct fraction b){
-  struct fraction f={0,0};
+  struct fraction f={0,1};
+  int c,d;
+  f.numerator=a.numerator*b.denominator;
+  f.denominator=a.denominator*b.numerator;
+  f=fractionCreate(f.numerator,f.denominator);
   return f;
   }
 void fractionPrint (struct fraction f){
   //prints the fraction obatined
   f=fractionCreate(f.numerator,f.denominator);
-  printf("%d/%d\n",f.numerator,f.denominator);
+  print(f.numerator,f.denominator);
 }

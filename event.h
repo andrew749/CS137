@@ -4,4 +4,4 @@ struct tod{
 struct event {
     struct tod start, end;
   };
-  int freetime (struct event schedule[], int n, int hour, int min);
+int freetime (struct event schedule[], int n, int hour, int min);
