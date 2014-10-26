@@ -10,7 +10,9 @@ int main (void)
   c = fractionCreate (56, 160);
   d = fractionCreate (35, 150);
   bad = fractionCreate (8, 0);
+  struct fraction e=fractionCreate(31,0);
 
+fractionPrint(e);
   r = fractionAdd (a, b);
   fractionPrint(r);
   r = fractionSubtract (c, d);
@@ -24,6 +26,7 @@ int main (void)
   fractionPrint(r);
   r = fractionAdd (b, r);
   fractionPrint(r);
-
+  e=fractionAdd(b,fractionAdd(a,bad));
+fractionPrint(e);
   return 0;
 }
