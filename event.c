@@ -1,5 +1,7 @@
 #include"event.h"
 int freetime2(struct event schedule[], int n, int hour, int min) {
+
+int freetime(struct event schedule[], int n, int hour, int min) {
 	int i;
 	//iterates over the array of events
 	for (i = 0; i < n; i++) {
@@ -33,7 +35,6 @@ int freetime2(struct event schedule[], int n, int hour, int min) {
 
 		}
 	}
-    
 	return 1;
 }
 int freetime(struct event schedule[], int n, int hour, int  min){
