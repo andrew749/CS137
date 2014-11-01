@@ -1,15 +1,19 @@
 #include<math.h>
+#include<stdio.h>
 int filldigit(int  *, int);
 int filldigit(int *a, int number){
-  int i=log(number);
+  int i=log10(number);
   int this=0;
 
-  for(i;i>0;i--){
+  for(;;i--){
     if(a[number%10]==0){
       a[number%10]=1; this=1;
       }
+      else{
+        return 0;
+      }
       number/=10;
-
+      if(number==0)break;
     }
     return this;
   }

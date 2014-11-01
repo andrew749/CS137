@@ -3,19 +3,20 @@ int dateSplit(int dayOfYear, int year, int *day, int *month){
   int daysofmonths[]={31,28,31,30,31,30,31,31,30,31,30,31};
   if(dayOfYear<=0||year<1753||dayOfYear>366)
     return 0;
-  if(leap(year))
-    daysofmonths[1]=29;
+  if(leap(year)) daysofmonths[1]=29;
+  else if(dayOfYear>365) return 0;
   int i;
-  int m;
+  *month=0;
   for (i=0;dayOfYear>0;i++){
+    *month=i+1;
     dayOfYear-=daysofmonths[i];
-    *month=i;
-    printf("%d",*month);
+    if(dayOfYear<=daysofmonths[i+1]&&i<=10){
+      *month+=1;
 
-    if(dayOfYear<daysofmonths[i+1]&&i<10){
       *day=dayOfYear;
-  break;
-  }
+
+      break;
+    }
   }
 
   return 1;
