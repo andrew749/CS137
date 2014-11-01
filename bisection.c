@@ -3,11 +3,11 @@
 #include <assert.h>
 void bisection(double a, double b, int iteration);
 int main(void){
-  bisection(-100.0,100.0,1000);
+  bisection(1,2,20);
 return 0;
 }
 double f(double a){
-return (a*a+2*a-34);
+return (a*a*a+10*a*a+8*a-50);
 }
 void printvariables(double a, double b, double midpoint){
   printf("m=%g n=%g  midpoint=%g\n",a,b,midpoint);
