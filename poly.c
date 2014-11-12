@@ -111,7 +111,7 @@ struct poly *polyPrime (struct poly *p){
     derivative->terms[i-1]=i*p->terms[i];
 
   }
-  derivative->length=p->length;
+  derivative->length=p->lengthb;
   return derivative;
 }
 //TODO implement

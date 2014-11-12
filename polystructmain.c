@@ -21,7 +21,7 @@ int main (void)
  //  polyPrint (p3);
    p4 = polyPrime (p0);
    double * test={0,-1,0,0,0,0,0,0,10};
-printf("testing %d",polyPrint2(test,9));
+printf("testing %d",polyPrint2(test,9pol));
   polyPrint (p4);
  printf("evaluating\n");
    printf ("%g\n", polyEval (p0, 0.0));
