@@ -87,12 +87,13 @@ double horner(double *coeffs, int s, double x)
   {
     res = res * x + coeffs[i];
   }
+
   return res;
 }
 
 //creats an empty polynomial of size 0 with no terms
 struct poly *polyCreate(){
-  double *t=(double *)calloc(1,sizeof(double));
+  double *t=(double *)calloc(0,sizeof(double));
   struct poly *p=(struct poly *)malloc(sizeof(struct poly));
   p->terms=t;
   p->length=0;
@@ -110,13 +111,13 @@ struct poly *polyDelete(struct poly *p){
 struct poly *polySetCoefficient (struct poly *p, int i, double value){
   if(!p)
     return (struct poly *)0;
-  if(p->length<i){
-    p->terms=(double *)realloc((void *)p->terms,sizeof(double)*i);
+  if(p->length<=i){
+    p->terms=(double *)realloc(p->terms,sizeof(double)*(i+1));
   }
   for (;p->length<=i;p->length++){
     p->terms[p->length]=0;
   }
-  p->terms[i]=value;
+  p->terms[i]=(double)value;
   return p;
 }
 
@@ -159,6 +160,7 @@ p2->terms=t;
     p2->terms[i]=p->terms[i];
   }
   p2->length=p->length;
+
   return p2;
 
 }

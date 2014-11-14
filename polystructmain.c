@@ -9,29 +9,28 @@ int main (void)
   struct poly *p2, *p3, *p4;
 
   printf ("%g\n", polyGetCoefficient (p0, 10));
-   printf ("%g\n", polyGetCoefficient (p0, 100));
-   printf ("%d\n", polyDegree (p0));
-   polyPrint (p0);
- polyPrint (p1);
+  printf ("%g\n", polyGetCoefficient (p0, 100));
+  printf ("%d\n", polyDegree (p0));
+  polyPrint (p0);
+  polyPrint (p1);
   polySetCoefficient (p1, 2, 1.0/2.0);
   polyPrint (p1);
-   p2 = polyAdd (p0, p1);
-   polyPrint (p2);
- // p3 = polyMultiply (p0, p1);
- //  polyPrint (p3);
-   p4 = polyPrime (p0);
-   double * test={0,-1,0,0,0,0,0,0,10};
-printf("testing %d",polyPrint2(test,9pol));
+  p2 = polyAdd (p0, p1);
+  polyPrint (p2);
+  p3 = polyMultiply (p0, p1);
+  polyPrint (p3);
+  p4 = polyPrime (p0);
   polyPrint (p4);
- printf("evaluating\n");
-   printf ("%g\n", polyEval (p0, 0.0));
-    printf ("%g\n", polyEval (p0, 1.0));
-printf ("%g\n", polyEval (p0, 2.0));
+  printf ("%g\n", polyEval (p0, 0.0));
+  printf ("%g\n", polyEval (p0, 1.0));
+  printf ("%g\n", polyEval (p0, 2.0));
   p0 = polyDelete (p0);
   p1 = polyDelete (p1);
   p2 = polyDelete (p2);
   p3 = polyDelete (p3);
   p4 = polyDelete (p4);
+
+  return 0;
 
   return 0;
 }
