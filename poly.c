@@ -7,7 +7,8 @@ void polyPrint2(double a[], int n) {
   int i;
   int first=1;
   //adjust n for actual integer value
-  n--;
+  //not sure why i did this
+  //n--;
   //first checks to make sure array is not empty
   if (checkifempty(a, n)) {
 
@@ -112,7 +113,7 @@ struct poly *polySetCoefficient (struct poly *p, int i, double value){
   if(!p)
     return (struct poly *)0;
   if(p->length<=i){
-    p->terms=(double *)realloc(p->terms,sizeof(double)*(i+1));
+    p->terms=(double *)realloc(p->terms,sizeof(double)*(i+2));
   }
   for (;p->length<=i;p->length++){
     p->terms[p->length]=0;
@@ -143,7 +144,7 @@ if(!p)
 
 //prints the polynomial
 void polyPrint (struct poly *p){
-
+if(p)
   //use poly print function from previous assignment
   polyPrint2(p->terms,p->length);
 }

@@ -29,8 +29,18 @@ int main (void)
   p2 = polyDelete (p2);
   p3 = polyDelete (p3);
   p4 = polyDelete (p4);
+  struct poly *p5=polySetCoefficient (polyCreate() , 1000000, 1.0);
+  struct poly *p7=polySetCoefficient (polyCreate() , 1000000, 1.0);
+  polyPrint(polyAdd(p5,p7));
+  struct poly *p6;
+  p6=polySetCoefficient(polyCreate(),0,1);
+  struct poly *p8 = polyCreate();
+   int i=0;
 
-  return 0;
+   for(i=0;i<1000000;i++){
+     p8=polyAdd(p6,p8);
+   }
+   polyPrint(p8);
 
   return 0;
 }
