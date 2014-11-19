@@ -21,7 +21,7 @@ int main (void)
  //  polyPrint (p3);
    p4 = polyPrime (p0);
    double * test={0,-1,0,0,0,0,0,0,10};
-printf("testing %d",polyPrint2(test,9pol));
+printf("testing %d",polyPrint2(test,9));
   polyPrint (p4);
  printf("evaluating\n");
    printf ("%g\n", polyEval (p0, 0.0));
@@ -32,6 +32,8 @@ printf ("%g\n", polyEval (p0, 2.0));
   p2 = polyDelete (p2);
   p3 = polyDelete (p3);
   p4 = polyDelete (p4);
-
+  struct poly *p5=polySetCoefficient (
+                                      polyCreate() , 1000000, 4.0);
+  polyPrint(p5);
   return 0;
 }
