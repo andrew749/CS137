@@ -2,18 +2,27 @@
 #include<stdio.h>
 int filldigit(int  *, int);
 int filldigit(int *a, int number){
-  int i=log10(number);
-  int this=0;
+  int this=1;
+  //ifnoring array
+  int b[10]={0};
+  while(1){
+    if(number==0)return 1;
 
-  for(;;i--){
-    if(a[number%10]==0){
-      a[number%10]=1; this=1;
-      }
-      else{
-        return 0;
+    if(b[number%10]==0){
+      b[number%10]=1;
+
       }
       number/=10;
-      if(number==0)break;
+
+
+    }
+    int i;
+    for( i=0;i<10;i++){
+      if(b[i]==1 &&a[i]==0){
+	this=0;
+	a[i]=1;
+
+	}
     }
     return this;
   }
@@ -23,14 +32,15 @@ int main(){
   scanf("%d",&n);
   if(n<0)
     return 0;
-    int a[10]={0};
-    filldigit(a,n);
+  int a[10]={0};
+  filldigit(a,n);
   while(n>0){
     scanf("%d",&n);
-    if(!filldigit(a,n)){
+    if( filldigit(a,n)){
       break;
     }
     else printf("%d",n);
   }
   return 0;
 }
+
