@@ -6,6 +6,7 @@ int main(){
   {6,'d'}, {3,'d'},{7,'s'},{10,'s'},{12,'d'}};
   struct card hand2[] = {{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'}};
+  struct card hand5[] = {{13,'s'}, {1,'s'},{2,'s'},{3,'s'},{4,'s'}};
   struct card hand3[] ={{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'},{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'},{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
@@ -160,8 +161,13 @@ int main(){
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'},{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'},{8,'c'}, {2,'h'},{5,'s'},{6,'c'},{1,'s'},
   {5,'c'}, {4,'d'},{6,'h'},{13,'d'},{1,'d'}};
+  struct card hand4[] = {{1,'h'}, {2,'h'},{3,'h'},{4,'h'},{5,'h'}};
+
+  printf("%d\n",straightflush(hand4,5));
   printf ("%d\n", straightflush(hand1, 10));
   printf ("%d\n", straightflush(hand2, 10));
+  printf ("%d\n", straightflush(hand5, 5));
+
   printf ("%d\n", straightflush(hand3, sizeof(hand3)/sizeof(hand3[0])));
 
   return 0;

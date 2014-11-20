@@ -10,7 +10,7 @@ int available (struct event schedule[], int n, struct event e){
 	for (i=0;i<n;i++){
 		int s2=schedule[i].start.hour*60+schedule[i].start.minute;
 		int e2=schedule[i].end.hour*60+schedule[i].end.minute;
-		if((starttime>s2&&endtime<e2)||(endtime<e2&&endtime>s2)||(starttime>s2&&starttime<e2)||(starttime<s2&&endtime>e2))
+		if((starttime>s2&&endtime<e2)||(endtime<e2&&endtime>s2)||(starttime>s2&&starttime<e2))
 			return 0;
 	}
 	return 1;
