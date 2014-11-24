@@ -1,43 +1,69 @@
 #include<stdio.h>
 #include"sf.h"
+#include<assert.h>
 int debug=0;
 void sortCards(struct card hand[], int n);
 int straightflush(struct card hand[], int n){
-	int i=0,previous;
+	if(n<=0||!hand)
+		return 0;
+	int i=0,previous,reset=0;
 	sortCards(hand,n);
-	int count=0;
+	// for (;i<n;i++){
+	// 	printf("Suit %c, Value %d\n",hand[i].suit,hand[i].value);
+	// }
+
+	int count=0,ace=0;
 	char suit;
 	i=0;
 	while(i<n){
 		suit=hand[i].suit;
 		count=0;
-		while(hand[i].suit==suit)
-		{
-		
+		ace=0;
+		previous=hand[i].value-1;
 			for(;i<n&&hand[i].suit==suit;i++){
+			//	printf("analysing %d %c\n",hand[i].value, hand[i].suit);
+				//set the ace flag to handle special case
+				if(hand[i].value==1){
+					ace=1;
 
+				}
+
+	assert(hand[i].suit=='h'||hand[i].suit=='d'||hand[i].suit=='s'||hand[i].suit=='c');
 				//skip over similar elements
 				while(hand[i].value==previous){
 					i++;
 				}
-				//checks if the previous element is 1 less than the current to
-				if(previous=hand[i].value-1||((previous==13)&&hand[i]=)){
+
+				//checks if the previous element is 1 less than the current or special ace case
+				if(count==0||previous==hand[i].value-1||(count==4&&ace&&hand[i].value==13&&hand[i].value-previous==1)){
 					count++;
+
+					//printf("incrementing count to %d for value %d, and suit %c\n",count,hand[i].value, hand[i].suit);
+					previous=hand[i].value;
+
 				}
 				else{
-					count=0;
+					count=1;
+					previous=hand[i].value;
+					ace=0;
+					if(hand[i].value==1){
+						ace=1;
+
+					}
 					continue;
 				}
+
+				//fits the criteria
 				if(count==5)
 					return 1;
-				previous=hand[i].value;
+
 			}
 
-		}}
+
+		}
 	return 0;
 
 }
-
 void sortCards(struct card hand[], int n){
 	int i,j=0;
 	struct card temp;
@@ -78,5 +104,3 @@ void sortCards(struct card hand[], int n){
 	}
 
 }
-
-

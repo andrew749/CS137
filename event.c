@@ -1,12 +1,16 @@
 #include<stdlib.h>
 #include <stdio.h>
 #include "event.h"
+#include<assert.h>
 int available (struct event schedule[], int n, struct event e){
 	struct event  *temp=(struct event *)calloc(n,sizeof(struct event));
 	sortSchedule(schedule,n);
 	int starttime=e.start.hour*60+e.start.minute;
 	int endtime=e.end.hour*60+e.end.minute;
 	int i;
+	if(!schedule||n<=0)
+		return 0;
+	assert(n>0);
 	for (i=0;i<n;i++){
 		int s2=schedule[i].start.hour*60+schedule[i].start.minute;
 		int e2=schedule[i].end.hour*60+schedule[i].end.minute;
@@ -71,7 +75,7 @@ void mergeSort(struct event *a, int n, struct event *temp){
 //	sortSchedule (schedule, sizeof(schedule)/sizeof(schedule[0]));
 //
 //	for (i = 0; i < sizeof(schedule)/sizeof(schedule[0]); i++)
-//		printf ("%02d:%02d - %02d:%02d\n", schedule[i].start.hour, 
+//		printf ("%02d:%02d - %02d:%02d\n", schedule[i].start.hour,
 //				schedule[i].start.minute, schedule[i].end.hour, schedule[i].end.minute);
 //
 //	return 0;

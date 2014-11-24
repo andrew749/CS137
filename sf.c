@@ -1,8 +1,11 @@
 #include<stdio.h>
 #include"sf.h"
+#include<assert.h>
 int debug=0;
 void sortCards(struct card hand[], int n);
 int straightflush(struct card hand[], int n){
+	if(n<=0||!hand)
+		return 0;
 	int i=0,previous,reset=0;
 	sortCards(hand,n);
 	// for (;i<n;i++){
@@ -25,6 +28,7 @@ int straightflush(struct card hand[], int n){
 
 				}
 
+	assert(hand[i].suit=='h'||hand[i].suit=='d'||hand[i].suit=='s'||hand[i].suit=='c');
 				//skip over similar elements
 				while(hand[i].value==previous){
 					i++;
@@ -68,6 +72,7 @@ void sortCards(struct card hand[], int n){
 	//sorts based on suit
 	for (i=0;i<n-1;i++){
 		min=i;
+		assert((hand[i].suit=='h'||hand[i].suit=='d'||hand[i].suit=='s'||hand[i].suit=='c')&&n>0);
 		for(j=i+1;j<n;j++)
 			if(hand[j].suit<hand[min].suit) min=j;
 		temp=hand[min];
