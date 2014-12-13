@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 void mergeSort(int *a,int n, int *temp);
 void sort(int a[], int n);
 int main(){
